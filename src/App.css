@@ -1,0 +1,22 @@
+nav {
+  background-color: #2e7d32;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+
+nav h1 {
+  color: white;
+  margin-right: 40px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 25px;
+  font-size: 18px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
