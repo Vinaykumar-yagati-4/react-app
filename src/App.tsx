@@ -13,6 +13,7 @@ import Register from "./Components/Register";
 //import Login from "./Components/Login";
 import Cart from "./Components/Cart";
 import Navbar from "./Components/Navbar";
+import Checkout from "./Components/Checkout";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         />
 
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
 
       </Routes>
 
