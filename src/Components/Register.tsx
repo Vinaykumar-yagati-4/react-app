@@ -1,6 +1,6 @@
-// import { useForm } from "react-hook-form";
-// import type { RegisterRequest } from "../interfaces/RegitserRequest";
-// import { serviceRegister } from "../services/AuthService";
+import { useForm } from "react-hook-form";
+import type { RegisterRequest } from "../interfaces/RegisterRequest";
+import { serviceRegister } from "../services/AuthService";
 
 import {
   FaUser,
@@ -11,21 +11,21 @@ import {
 } from "react-icons/fa";
 
 function Register() {
-  // const { register, handleSubmit, reset } =
-  //   useForm<RegisterRequest>();
+  const { register, handleSubmit, reset } =
+    useForm<RegisterRequest>();
 
-  // const onSubmit = (data: RegisterRequest) => {
-  //   serviceRegister(data)
-  //     .then((response) => {
-  //       console.log(response);
-  //       alert("Registration Successful");
-  //       reset();
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       alert("Registration Failed");
-  //     });
-  // };
+  const onSubmit = (data: RegisterRequest) => {
+    serviceRegister(data)
+      .then((response) => {
+        console.log(response);
+        alert("Registration Successful");
+        reset();
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Registration Failed");
+      });
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 via-white to-green-200 p-6">
@@ -51,7 +51,7 @@ function Register() {
         </div>
 
         <form
-          // onSubmit={handleSubmit(onSubmit)}
+           onSubmit={handleSubmit(onSubmit)}
           className="space-y-5"
         >
 
@@ -64,7 +64,7 @@ function Register() {
             <input
               type="text"
               placeholder="Full Name"
-              // {...register("name")}
+              {...register("name")}
               className="w-full pl-12 p-3 border rounded-xl focus:ring-2 focus:ring-green-500 outline-none"
             />
 
@@ -79,7 +79,7 @@ function Register() {
             <input
               type="email"
               placeholder="Email Address"
-              // {...register("email")}
+               {...register("email")}
               className="w-full pl-12 p-3 border rounded-xl focus:ring-2 focus:ring-green-500 outline-none"
             />
 
@@ -94,7 +94,7 @@ function Register() {
             <input
               type="number"
               placeholder="Phone Number"
-              // {...register("phone")}
+               {...register("phone")}
               className="w-full pl-12 p-3 border rounded-xl focus:ring-2 focus:ring-green-500 outline-none"
             />
 
@@ -109,7 +109,7 @@ function Register() {
             <input
               type="password"
               placeholder="Password"
-              // {...register("password")}
+               {...register("password")}
               className="w-full pl-12 p-3 border rounded-xl focus:ring-2 focus:ring-green-500 outline-none"
             />
 
