@@ -17,5 +17,3 @@ export interface CartContextType {
 }
 
 export const CartContext = createContext<CartContextType>(null!);
-
-

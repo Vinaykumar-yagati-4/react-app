@@ -3,5 +3,7 @@ export interface RegisterRequest {
     name: string;
     email: string;
     password: string;
-    phone: number
+    phone: number;
+    gender?: string;
+    address?: string;
 }

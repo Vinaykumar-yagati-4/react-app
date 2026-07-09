@@ -1,43 +1,46 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./Home";
-import Veg from "./Veg";
-import Nonveg from "./Nonveg";
-import Dairy from "./Dairy";
+
+
+import Home from "./pages/Home";
+import Veg from "./pages/Veg";
+import Dairy from "./pages/Dairy";
+
+
+
+import NonVeg from "./pages/Nonveg";
 import Register from "./Components/Register";
-import { FcAdvertising } from "react-icons/fc";
+//import Login from "./Components/Login";
 import Cart from "./Components/Cart";
+import Navbar from "./Components/Navbar";
+
 
 function App() {
   return (
     <BrowserRouter>
-      <nav>
-        <h1>FreshMart</h1>
 
-        <Link to="/">Home</Link>{" "}
-        <Link to="/veg">Vegetables</Link>{" "}
-        <Link to="/nonveg">Non-Veg</Link>{" "}
-        <Link to="/dairy">Dairy</Link>{" "}
-        <Link to="/register" className="register-btn">
-          Register
-        </Link>
-        
-   <Link to="/cart" className="menu-link">
-              <FcAdvertising size={26} />
-              Cart {Cart.length}
-            </Link>
-
-      </nav>
+      <Navbar />
 
       <Routes>
+
         <Route path="/" element={<Home />} />
+
         <Route path="/veg" element={<Veg />} />
-        <Route path="/nonveg" element={<Nonveg />} />
+
+        <Route path="/NonVeg" element={<NonVeg />} />
+
         <Route path="/dairy" element={<Dairy />} />
+
         <Route path="/register" element={<Register />} />
+        <Route
+          path="/login"
+          //element={<Login />}
+        />
+
         <Route path="/cart" element={<Cart />} />
+
       </Routes>
+
     </BrowserRouter>
   );
 }

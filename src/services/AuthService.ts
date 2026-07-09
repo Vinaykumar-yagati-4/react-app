@@ -1,8 +1,10 @@
-import { registerUser } from "../apis/AuthApis";
+ import { registerUser } from "../apis/AuthApis";
 import type { RegisterRequest } from "../interfaces/RegisterRequest";
+ 
 
-export const servieRegister = async (data: RegisterRequest) => {
-  const response = await registerUser(data);
+ export const serviceRegister = async (data: RegisterRequest) => {
+   const response = await registerUser(data);
 
-  return response.data;
+   return response.data;
 };
+
