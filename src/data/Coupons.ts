@@ -17,4 +17,8 @@ export const coupons: Coupon[] = [
     code: "NEW50",
     discount: 50,
   },
+  {
+    code: "EXIST45",
+    discount: 45,
+  },
 ];

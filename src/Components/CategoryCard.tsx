@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 type CategoryProps = {
   title: string;
@@ -13,19 +14,124 @@ function CategoryCard({
   color,
   link,
 }: CategoryProps) {
+
+  const description =
+    title === "Vegetables"
+      ? "Fresh and healthy vegetables"
+      : title === "Non Veg"
+      ? "Premium quality meat products"
+      : "Fresh milk and dairy products";
+
+
   return (
     <Link to={link}>
+
       <div
-        className={`${color} rounded-2xl p-8 text-center text-white shadow-lg hover:scale-105 transition duration-300`}
+        className={`
+          ${color}
+          group
+          relative
+          overflow-hidden
+          rounded-[32px]
+          p-10
+          text-white
+          shadow-2xl
+          hover:-translate-y-5 hover:scale-105
+          transition-all
+          duration-500
+        `}
       >
-        <div className="text-6xl mb-4">
-          {icon}
+
+
+        {/* Background Circle */}
+
+        <div className="absolute -right-10 -top-10 w-32 h-32 bg-white/20 rounded-full group-hover:scale-[1.8] transition duration-500">
         </div>
 
-        <h2 className="text-2xl font-bold">
-          {title}
-        </h2>
+
+
+        {/* Icon */}
+
+        <div className="relative">
+
+          <div
+            className="
+              bg-white/20
+              backdrop-blur-sm
+              w-28
+              h-28
+              mx-auto
+              rounded-full
+              flex
+              items-center
+              justify-center
+              text-7xl
+              mb-6
+              group-hover:rotate-12 group-hover:scale-110
+              transition
+              duration-300
+            "
+          >
+            {icon}
+
+            <div className="inline-block bg-yellow-300 text-green-900 px-3 py-1 rounded-full text-sm font-bold mb-4 shadow-md">
+              Fresh Everyday
+            </div>
+
+          </div>
+
+
+
+          {/* Title */}
+
+          <h2 className="text-4xl font-black mb-4">
+
+            {title}
+
+          </h2>
+
+
+
+          {/* Description */}
+
+          <p className="text-white/95 text-lg leading-7 mb-8">
+
+            {description}
+
+          </p>
+
+
+
+          {/* Button */}
+
+          <div
+            className="
+              inline-flex
+              items-center
+              gap-3
+              bg-white
+              text-gray-800
+              px-7
+              py-3
+              rounded-full
+              font-bold text-lg
+              group-hover:bg-yellow-300 group-hover:text-green-900
+              transition
+            "
+          >
+
+            Explore
+
+            <FaArrowRight />
+
+          </div>
+
+
+        </div>
+
+
       </div>
+
     </Link>
   );
 }

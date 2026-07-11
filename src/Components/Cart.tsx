@@ -48,7 +48,7 @@ function Cart() {
       setMessage(`🎉 Coupon Applied (${coupon.discount}% OFF)`);
     } else {
       setCouponPercent(0);
-      setMessage("❌ Invalid Coupon Code by Ujwala");
+      setMessage("❌ Invalid Coupon Code by FreshMart");
     }
   };
   
@@ -58,11 +58,15 @@ function Cart() {
  let navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
+    <div className="min-h-screen bg-gradient-to-b from-green-50 via-white to-green-100 py-10 px-6">
 
-      <h1 className="text-4xl font-bold text-center text-green-700 mb-10">
-        🛒 My Shopping Cart
+     <h1 className="text-5xl font-black text-center text-green-700 mb-4">
+        🛒 FreshMart Shopping Cart
       </h1>
+
+      <p className="text-center text-gray-500 text-lg mb-12">
+         Review your selected products before checkout.
+      </p>
 
       {cart.length === 0 ? (
         <div className="bg-white p-10 rounded-xl shadow text-center">
@@ -82,20 +86,24 @@ function Cart() {
 
               <div
                 key={item.id}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-5 flex flex-col md:flex-row items-center gap-6"
+                className="bg-white rounded-3xl shadow-md hover:shadow-2xl border border-gray-100 hover:border-green-300 transition-all duration-500 p-6 flex flex-col md:flex-row items-center gap-8"
               >
 
                 <img
                   src={item.imageurl}
                   alt={item.description}
-                  className="w-36 h-36 object-contain"
+                  className="w-40 h-40 object-contain drop-shadow-xl group-hover:scale-105 transition duration-300"
                 />
 
                 <div className="flex-1">
 
                   <h2 className="text-2xl font-bold text-gray-800">
-                    {item.description}
+                    {item.name}
                   </h2>
+
+                  <p className="text-gray-500 mt-2">
+                     {item.description}
+                  </p>
 
                   <p className="text-green-600 text-xl font-bold mt-2">
                     ₹{item.price}
@@ -149,14 +157,14 @@ function Cart() {
 
           {/* RIGHT SIDE */}
 
-          <div className="bg-white rounded-2xl shadow-xl p-6 h-fit sticky top-5">
+          <div className="bg-white rounded-3xl border border-gray-100 shadow-2xl p-8 h-fit sticky top-24">
 
             <div className="flex items-center gap-3 mb-6">
 
               <FaShoppingCart className="text-3xl text-green-600" />
 
-              <h2 className="text-3xl font-bold">
-                Order Summary
+              <h2 className="text-3xl font-black text-gray-800">
+                 Order Summary
               </h2>
 
             </div>
@@ -166,13 +174,13 @@ function Cart() {
               <input
                 ref={couponRef}
                 type="text"
-                placeholder="Enter Coupon"
-                className="border p-3 rounded-lg flex-1"
+                placeholder="Enter FreshMart Coupon"
+                className="border-2 border-green-200 focus:border-green-600 outline-none p-3 rounded-xl flex-1"
               />
 
               <button
                 onClick={applyCoupon}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 rounded-lg"
+                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 rounded-xl font-semibold transition-all duration-300"
               >
                 Apply
               </button>
@@ -188,13 +196,15 @@ function Cart() {
             >
               {message}
             </p>
-                        <div className="space-y-5">
+             <div className="space-y-6 mt-8">
 
               <div className="flex justify-between items-center">
 
                 <div className="flex items-center gap-2">
                   <FaMoneyBillWave className="text-green-600" />
-                  <span>Grand Total</span>
+                  <span className="font-medium">
+                        Grand Total
+                        </span>
                 </div>
 
                 <span className="font-bold text-lg">
@@ -207,7 +217,9 @@ function Cart() {
 
                 <div className="flex items-center gap-2">
                   <FaTicketAlt className="text-orange-500" />
-                  <span>Coupon Discount</span>
+                  <span className="font-medium">
+                     Discount
+                  </span>
                 </div>
 
                 <span className="font-bold text-red-600">
@@ -216,7 +228,17 @@ function Cart() {
 
               </div>
 
-              <hr />
+              <hr className="border-dashed border-gray-300" />
+
+              <div className="flex justify-between items-center">
+              <span className="font-medium text-gray-600">
+              Delivery Charges
+              </span>
+
+             <span className="font-bold text-green-600">
+               FREE
+             </span>
+             </div>
 
               <div className="flex justify-between items-center">
 
@@ -245,7 +267,7 @@ function Cart() {
     })
   }
 
-  className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-xl"
+  className="w-full mt-8 bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 text-white py-4 rounded-2xl text-lg font-bold shadow-lg transition-all duration-300 hover:scale-[1.02]"
   
 >
   Proceed to Checkout

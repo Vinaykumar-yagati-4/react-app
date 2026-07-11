@@ -1,140 +1,94 @@
-import { useForm } from "react-hook-form";
-import type { RegisterRequest } from "../interfaces/RegisterRequest";
-import { serviceRegister } from "../services/AuthService";
+// 
 
-import {
-  FaUser,
-  FaEnvelope,
-  FaPhone,
-  FaLock,
-  FaUserPlus,
-} from "react-icons/fa";
+
+
+
+
+import { useForm } from 'react-hook-form'
+
+
+
+import { useNavigate } from 'react-router-dom';
+import type { RegisterRequest } from '../interfaces/RegisterRequest';
 
 function Register() {
-  const { register, handleSubmit, reset } =
-    useForm<RegisterRequest>();
 
-  const onSubmit = (data: RegisterRequest) => {
-    serviceRegister(data)
-      .then((response) => {
-        console.log(response);
-        alert("Registration Successful");
-        reset();
-      })
-      .catch((error) => {
-        console.log(error);
-        alert("Registration Failed");
-      });
-  };
+  let {register,handleSubmit,reset}  = useForm<RegisterRequest>();
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 via-white to-green-200 p-6">
+let navigate = useNavigate();
 
-      <div className="bg-white shadow-2xl rounded-3xl w-full max-w-md p-8">
+    let onSubmitLogics = (data: RegisterRequest) => {
 
-        <div className="text-center mb-8">
+        console.log(data);
 
-          <div className="flex justify-center mb-4">
-            <div className="bg-green-600 p-5 rounded-full">
-              <FaUserPlus className="text-4xl text-white" />
-            </div>
-          </div>
+        // registerSevice(data);
 
-          <h1 className="text-3xl font-bold text-green-700">
-            Create Account
-          </h1>
+      // Read existing users
+      const users: RegisterRequest[] = JSON.parse(
+        localStorage.getItem("users") || "[]"
+      );
 
-          <p className="text-gray-500 mt-2">
-            Join FreshMart and start shopping fresh!
-          </p>
-
-        </div>
-
-        <form
-           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-5"
-        >
-
-          {/* Name */}
-
-          <div className="relative">
-
-            <FaUser className="absolute left-4 top-4 text-gray-400" />
-
-            <input
-              type="text"
-              placeholder="Full Name"
-              {...register("name")}
-              className="w-full pl-12 p-3 border rounded-xl focus:ring-2 focus:ring-green-500 outline-none"
-            />
-
-          </div>
-
-          {/* Email */}
-
-          <div className="relative">
-
-            <FaEnvelope className="absolute left-4 top-4 text-gray-400" />
-
-            <input
-              type="email"
-              placeholder="Email Address"
-               {...register("email")}
-              className="w-full pl-12 p-3 border rounded-xl focus:ring-2 focus:ring-green-500 outline-none"
-            />
-
-          </div>
-
-          {/* Phone */}
-
-          <div className="relative">
-
-            <FaPhone className="absolute left-4 top-4 text-gray-400" />
-
-            <input
-              type="number"
-              placeholder="Phone Number"
-               {...register("phone")}
-              className="w-full pl-12 p-3 border rounded-xl focus:ring-2 focus:ring-green-500 outline-none"
-            />
-
-          </div>
-
-          {/* Password */}
-
-          <div className="relative">
-
-            <FaLock className="absolute left-4 top-4 text-gray-400" />
-
-            <input
-              type="password"
-              placeholder="Password"
-               {...register("password")}
-              className="w-full pl-12 p-3 border rounded-xl focus:ring-2 focus:ring-green-500 outline-none"
-            />
-
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-semibold transition duration-300"
-          >
-            Create Account
-          </button>
-
-        </form>
-
-        <p className="text-center text-gray-500 mt-6">
-          Already have an account?
-          <span className="text-green-600 font-semibold cursor-pointer hover:underline ml-1">
-            Login
-          </span>
-        </p>
-
-      </div>
-
-    </div>
+    // Check duplicate email
+  const userExists = users.some(
+    (user) => user.email === data.email
   );
+
+    if (userExists) {
+    alert("Email already registered");
+    return;
+  }
+    // Add id
+  const newUser = { id: users.length + 1, ...data};
+
+   // Add new user to array
+  users.push(newUser);
+
+  localStorage.setItem("users", JSON.stringify(users));
+        alert("Registration successfulll");
+        navigate("/login");
+        reset();
+    }
+  return (
+    <>
+    <form onSubmit={handleSubmit(onSubmitLogics)}>
+
+      <input
+        type="text"
+        {...register("name")}
+        placeholder="Enter Username"
+      />
+
+      <br /><br />
+
+      <input
+        type="password"
+        {...register("password")}
+        placeholder="Enter Password"
+      />
+
+      <br /><br />
+
+      <input
+        type="email"
+        {...register("email")}
+        placeholder="Enter Email"
+      />
+
+      <br /><br />
+
+      <input
+        type="number"
+        {...register("phone")}
+        placeholder="Enter Phone Number"
+      />
+
+      <br /><br />
+
+      <button type="submit">Register</button>
+
+    </form>
+    </>
+  )
 }
 
-export default Register;
+export default Register

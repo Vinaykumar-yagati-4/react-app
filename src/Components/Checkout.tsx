@@ -14,11 +14,18 @@ import QRCode from "react-qr-code";
 import { FcAlarmClock,  } from "react-icons/fc";
 import { sendOrderEmail } from "../services/emailService";
 import { getAddressFromLocation } from "../apis/locationapi";
+import { OrderContext } from "../contextapi/OrderContext";
+import Swal from "sweetalert2";
+
 
 
 function Checkout() {
   // Read the data from contnect Api
   const { cart, clearCart } = useContext(CartContext);
+
+
+
+  const { addOrder } = useContext(OrderContext);
 
   const navigate = useNavigate();
 
@@ -77,7 +84,34 @@ const {
       alert("Please select a payment method.");
       return;
     }
-    alert("Order Placed Successfully!");
+    // alert("Order Placed Successfully!");
+    
+    Swal.fire({
+  icon: "success",
+  title: "✅ Order Placed!",
+  text: `Your order has been placed successfully.\nOrder ID: ${12345}`,
+
+  showConfirmButton: true,
+  confirmButtonText: "Track Order",
+  confirmButtonColor: "#2563eb",
+
+  showCancelButton: true,
+  cancelButtonText: "Close/Cancel",
+  cancelButtonColor: "#ef4444",
+
+  timer: 10000,
+  timerProgressBar: true,
+}).then((result) => {
+  // If user clicks "Track Order"
+  if (result.isConfirmed) {
+    navigate("/orders");
+  }
+
+  // If timer completes automatically
+  if (result.dismiss === Swal.DismissReason.timer) {
+    navigate("/orders");
+  }
+});
 
     //prepare the email information 
     // Map the template params & our Data.
@@ -104,8 +138,35 @@ const {
     
     await sendOrderEmail(order);
 
+     const orderData = {
+      orderNumber: Math.floor(Math.random() * 100000),
+
+      customerName: name,
+
+      mobile: mobile,
+
+      email: email,
+
+      address: address,
+
+      paymentMode: paymentMode,
+
+      grandTotal: grandTotal,
+
+      discount: discount,
+
+      finalAmount: finalAmount,
+
+      orderDate: new Date().toLocaleString(),
+
+      status: "PLACED",
+
+      items: [...cart],
+    };
+
+    addOrder(orderData);
     clearCart();
-    navigate("/cart");
+    //navigate("/orders");
   };
 
     const getCurrentLocation = () => {
