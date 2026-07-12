@@ -180,39 +180,107 @@ function Login() {
   };
 
   return (
-    <>
-      <h2>Login</h2>
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 flex items-center justify-center px-6 py-10">
+      <div className="w-full max-w-md bg-white rounded-3xl shadow-2xl p-10">
 
-      <form onSubmit={handleSubmit(onSubmitLogics)}>
+      <div className="text-center mb-8">
+
+      <div className="text-6xl mb-4">
+           🛒
+      </div>
+
+       <h2 className="text-4xl font-black text-green-700">
+              Welcome Back
+       </h2>
+
+       <p className="text-gray-500 mt-2">
+           Login to continue shopping with FreshMart
+      </p>
+
+      </div>
+
+      <form
+        onSubmit={handleSubmit(onSubmitLogics)}
+        className="space-y-6"
+      >
 
         <input
-          type="email"
-          placeholder="Enter Email"
-          {...register("email", {
-            required: "Email is required",
-          })}
-        />
-
-        <br />
-        <br />
+        type="email"
+        placeholder="Enter Email Address"
+        {...register("email", {
+        required: "Email is required",
+        })}
+        className="
+        w-full
+        border
+        border-gray-300
+        rounded-2xl
+        px-5
+        py-4
+        outline-none
+        focus:border-green-600
+        focus:ring-2
+        focus:ring-green-200
+        transition-all
+        "
+       />
 
         <input
-          type="password"
-          placeholder="Enter Password"
-          {...register("password", {
-            required: "Password is required",
-          })}
-        />
+        type="password"
+        placeholder="Enter Password"
+        {...register("password", {
+         required: "Password is required",
+        })}
+         className="
+         w-full
+         border
+         border-gray-300
+         rounded-2xl
+         px-5
+         py-4
+         outline-none
+         focus:border-green-600
+         focus:ring-2
+         focus:ring-green-200
+         transition-all
+         "
+         />
+        <button
+         type="submit"
+  className="
+    w-full
+    bg-green-600
+    hover:bg-green-700
+    text-white
+    py-4
+    rounded-2xl
+    text-lg
+    font-bold
+    transition-all
+    duration-300
+    hover:scale-105
+    shadow-lg
+  "
+>
+            Login
+         </button><p className="text-center text-gray-500">
 
-        <br />
-        <br />
+           Don't have an account?
 
-        <button type="submit">
-          Login
-        </button>
+            <a
+            href="/register"
+            className="text-green-600 font-bold ml-2 hover:underline"
+          >
+            Register
+          </a>
+
+          </p>
+
+
 
       </form>
-    </>
+    </div>
+    </div>
   );
 }
 

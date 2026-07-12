@@ -33,10 +33,10 @@ function Cart() {
 
 
   
-  const [couponPercent, setCouponPercent] = useState(0);
-  const [message, setMessage] = useState("");
+    const [couponPercent, setCouponPercent] = useState(0);
+    const [message, setMessage] = useState("");
 
-  const applyCoupon = () => {
+    const applyCoupon = () => {
     const couponCode = couponRef.current?.value.trim() || "";
 
     const coupon = coupons.find(

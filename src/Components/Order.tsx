@@ -35,11 +35,19 @@ function Orders() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 py-10 px-6">
 
-      <h1 className="text-4xl font-bold text-center text-green-700 mb-8">
-        📦 My Orders
+      <div className="text-center mb-10">
+
+      <h1 className="text-5xl font-extrabold text-green-700">
+        My Orders
       </h1>
+
+      <p className="text-gray-500 mt-3 text-lg">
+         Track all your FreshMart purchases in one place.
+      </p>
+
+      </div>
 
       <div className="max-w-7xl mx-auto space-y-5">
 
@@ -47,19 +55,43 @@ function Orders() {
 
           <div
             key={order.orderNumber}
-            className="bg-white rounded-2xl shadow-lg overflow-hidden"
-          >
+            className="
+            bg-white
+            rounded-3xl
+            overflow-hidden
+            shadow-xl
+            border
+            border-gray-100
+            hover:shadow-2xl
+            transition-all 
+            duration-300
+            "
+           >
 
             {/* Header */}
 
             <div
               onClick={() => toggleOrder(order.orderNumber)}
-              className="bg-green-600 text-white px-6 py-4 flex justify-between items-center cursor-pointer hover:bg-green-700 transition"
+              className="
+              bg-gradient-to-r
+              from-green-600
+              to-emerald-500
+              text-white
+              px-8
+              py-5
+              flex
+              justify-between
+              items-center
+              cursor-pointer
+              transition
+              hover:from-green-700
+              hover:to-green-600
+              "
             >
 
               <div>
 
-                <h2 className="text-xl font-bold">
+                <h2 className="text-2xl font-bold">
                   Order #{order.orderNumber}
                 </h2>
 
@@ -72,7 +104,20 @@ function Orders() {
 
               <div className="flex items-center gap-4">
 
-                <span className="bg-white text-green-700 px-4 py-2 rounded-full font-semibold flex items-center gap-2">
+                <span
+                className="
+                bg-white
+                text-green-700
+                px-5
+                py-2
+                rounded-full
+                font-bold
+                shadow-md
+                flex
+                items-center
+                gap-2
+                "
+                >
                   <FaCheckCircle />
                   {order.status}
                 </span>
@@ -91,7 +136,7 @@ function Orders() {
 
             {expandedOrder === order.orderNumber && (
 
-              <div className="grid lg:grid-cols-2 gap-6 p-6">
+              <div className="grid lg:grid-cols-2 gap-8 p-8">
 
                 {/* LEFT SIDE */}
 
@@ -108,13 +153,23 @@ function Orders() {
 
                       <div
                         key={item.id}
-                        className="flex items-center gap-4 border rounded-xl p-3 hover:bg-gray-50"
+                        className="
+flex
+items-center
+gap-5
+border
+border-gray-200
+rounded-2xl
+p-5
+hover:shadow-lg
+transition
+"
                       >
 
                         <img
                           src={item.imageurl}
                           alt={item.description}
-                          className="w-20 h-20 object-contain rounded"
+                          className="w-24 h-24 object-contain"
                         />
 
                         <div className="flex-1">
@@ -143,7 +198,7 @@ function Orders() {
 
                 {/* RIGHT SIDE */}
 
-                <div className="bg-gray-50 rounded-xl p-5">
+                <div className="bg-green-50 rounded-3xl p-7 shadow-inner">
 
                   <h3 className="text-xl font-bold mb-5">
                     Order Details
@@ -183,7 +238,7 @@ function Orders() {
                       <span>- ₹{order.discount}</span>
                     </div>
 
-                    <div className="flex justify-between text-2xl font-bold text-green-700">
+                    <div className="flex justify-between text-3xl font-extrabold text-green-700 pt-4">
                       <span className="flex items-center gap-2">
                         <FaMoneyBillWave />
                         Payable

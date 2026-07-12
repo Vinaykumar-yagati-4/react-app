@@ -196,25 +196,33 @@ const {
 
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <h1 className="text-4xl font-bold text-center text-green-700 mb-8">
+    <div className="min-h-screen bg-gradient-to-b from-green-50 via-white to-green-100 py-10 px-4 md:px-8">
+      <div className="text-center mb-10">
+
+       <h1 className="text-5xl md:text-6xl font-black text-green-700">
         Checkout
-      </h1>
+       </h1>
+
+       <p className="text-lg text-gray-500 mt-3">
+         Complete your order and enjoy fresh groceries delivered to your doorstep.
+       </p>
+
+       </div>
 
       <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-8">
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <h2 className="text-2xl font-bold flex items-center gap-2 mb-6">
+          <div className="bg-white rounded-3xl shadow-xl border border-green-100 p-8">
+            <h2 className="text-3xl font-black flex items-center gap-3 mb-8 text-gray-800">
               <FaMapMarkerAlt className="text-red-600" /> Delivery Address
             </h2>
 
             <div className="space-y-5">
               <div>
                 <label className="font-semibold">Customer Name</label>
-                <div className="flex items-center border rounded-lg mt-2">
+                <div className="flex items-center border-2 border-gray-200 rounded-xl mt-2 focus-within:border-green-600 transition-all">
                   <FaUser className="mx-3 text-gray-500" />
                   <input
-                    className="w-full p-3 outline-none"
+                    className="w-full p-4 outline-none rounded-r-xl"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Enter Name"
@@ -224,7 +232,7 @@ const {
 
               <div>
                 <label className="font-semibold">Mobile Number</label>
-                <div className="flex items-center border rounded-lg mt-2">
+                <div className="flex items-center border-2 border-gray-200 rounded-xl mt-2 focus-within:border-green-600 transition-all">
                   <FaPhone className="mx-3 text-gray-500" />
                   <input
                     className="w-full p-3 outline-none"
@@ -237,7 +245,7 @@ const {
 
               <div>
                 <label className="font-semibold">Email Id</label>
-                <div className="flex items-center border rounded-lg mt-2">
+                <div className="flex items-center border-2 border-gray-200 rounded-xl mt-2 focus-within:border-green-600 transition-all">
                   <FcAlarmClock className="mx-3 text-gray-500" />
                   <input
                     className="w-full p-3 outline-none"
@@ -249,20 +257,20 @@ const {
               </div>
 
                 <button
-    type="button"
-    onClick={getCurrentLocation}
-    className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg flex items-center gap-2"
-  >
-    <FaMapMarkerAlt />
-    Use Current Location
-  </button>
+                 type="button"
+                 onClick={getCurrentLocation}
+                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl shadow-lg transition-all duration-300 hover:scale-105 flex items-center gap-2"
+                >
+               <FaMapMarkerAlt />
+                   Use Current Location
+                </button>
 
 
               <div>
                 <label className="font-semibold">Address</label>
                 <textarea
                   rows={4}
-                  className="border rounded-lg w-full mt-2 p-3 outline-none"
+                  className="border-2 border-gray-200 rounded-xl w-full mt-2 p-4 outline-none focus:border-green-600 transition-all"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                 />
@@ -270,48 +278,100 @@ const {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <h2 className="text-2xl font-bold mb-6">Payment Method</h2>
+          <div className="bg-white rounded-3xl shadow-xl border border-green-100 p-8">
+            <h2 className="text-3xl font-black text-gray-800 mb-8">
+              Payment Method
+              </h2>
 
-            <label className="flex items-center gap-3 mb-4">
+            <label
+                className={`flex items-center justify-between border-2 rounded-2xl p-5 cursor-pointer transition-all duration-300 ${
+                paymentMode === "UPI"
+                ? "border-blue-600 bg-blue-50"
+                : "border-gray-200 hover:border-blue-300"
+                }`}
+               >
               <input
                 type="radio"
                 value="UPI"
                 checked={paymentMode === "UPI"}
                 onChange={(e) => setPaymentMode(e.target.value)}
               />
-              <FaQrcode className="text-blue-600" /> UPI Payment
+             <div className="flex items-center gap-4">
+
+             <FaQrcode className="text-3xl text-blue-600" />
+
+             <div>
+
+             <h3 className="font-bold">
+               UPI Payment
+             </h3>
+
+             <p className="text-sm text-gray-500">
+                 Pay instantly using any UPI App
+             </p>
+
+            </div>
+
+            </div> 
             </label>
 
-            <label className="flex items-center gap-3">
+            <label
+              className={`flex items-center justify-between border-2 rounded-2xl p-5 mt-5 cursor-pointer transition-all duration-300 ${
+              paymentMode === "COD"
+              ? "border-green-600 bg-green-50"
+              : "border-gray-200 hover:border-green-300"
+             }`}
+             >
               <input
                 type="radio"
                 value="COD"
                 checked={paymentMode === "COD"}
                 onChange={(e) => setPaymentMode(e.target.value)}
               />
-              <FaTruck className="text-green-600" /> Cash On Delivery
+              <div className="flex items-center gap-4">
+
+             <FaTruck className="text-3xl text-green-600" />
+
+             <div>
+
+            <h3 className="font-bold">
+              Cash On Delivery
+            </h3>
+
+            <p className="text-sm text-gray-500">
+                Pay when your order arrives
+            </p>
+
+           </div>
+
+           </div>
             </label>
 
             {paymentMode === "UPI" && (
-              <div className="qr-section">
-                <h4>Scan UPI QR to Pay ₹{finalAmount.toFixed(2)}</h4>
-                <QRCode
-                  value={`upi://pay?pa=7989321675@ybl&pn=FreshMart&am=${finalAmount.toFixed(2)}&cu=INR`}
-                />
-                <p>UPI ID: 7989321675@ybl</p>
+              <div className="mt-8 bg-blue-50 rounded-3xl p-8 text-center border border-blue-200">
+                <h4 className="text-2xl font-bold text-blue-700 mb-5">Scan UPI QR to Pay ₹{finalAmount.toFixed(2)}</h4>
+                <div className="flex justify-center my-5">
+
+            <QRCode
+                value={`upi://pay?pa=7989321675@ybl&pn=FreshMart&am=${finalAmount.toFixed(2)}&cu=INR`}
+             />
+
+            </div>
+                <p className="mt-4 text-gray-600 font-semibold tracking-wide">
+                    UPI ID : 7989321675@ybl
+                </p>
               </div>
             )}
 
             {paymentMode === "COD" && (
-              <div className="mt-6 bg-green-100 p-5 rounded-xl">
+              <div className="mt-6 bg-green-50 border border-green-200 rounded-2xl p-6 shadow-sm">
                 Cash will be collected during delivery.
               </div>
             )}
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg p-6 h-fit sticky top-5">
+        <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 h-fit sticky top-28">
           <h2 className="text-3xl font-bold mb-6">Order Summary</h2>
 
           <div className="space-y-4">
