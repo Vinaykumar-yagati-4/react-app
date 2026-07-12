@@ -125,7 +125,7 @@ function Cart() {
 
                     <button
                       onClick={() => decreaseQuantity(item.id)}
-                      className="bg-red-500 hover:bg-red-600 text-white p-3 rounded-full"
+                     className="bg-red-500 hover:bg-red-600 active:scale-95 transition-all duration-200 text-white p-3 rounded-full"
                     >
                       <FaMinus />
                     </button>
@@ -136,7 +136,7 @@ function Cart() {
 
                     <button
                       onClick={() => increaseQuantity(item.id)}
-                      className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full"
+                      className="bg-green-500 hover:bg-green-600 active:scale-95 transition-all duration-200 text-white p-3 rounded-full"
                     >
                       <FaPlus />
                     </button>
@@ -145,7 +145,7 @@ function Cart() {
 
                   <button
                     onClick={() => removeFromCart(item.id)}
-                    className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-lg flex items-center gap-2"
+                    className="bg-red-600 hover:bg-red-700 active:scale-95 transition-all duration-200 text-white px-5 py-2 rounded-lg flex items-center gap-2"
                   >
                     <FaTrash />
                     Remove
@@ -180,7 +180,7 @@ function Cart() {
 
               <button
                 onClick={applyCoupon}
-                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 rounded-xl font-semibold transition-all duration-300"
+                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 active:scale-95 text-white px-6 rounded-xl font-semibold transition-all duration-300"
               >
                 Apply
               </button>
@@ -267,7 +267,8 @@ function Cart() {
     })
   }
 
-  className="w-full mt-8 bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 text-white py-4 rounded-2xl text-lg font-bold shadow-lg transition-all duration-300 hover:scale-[1.02]"
+  className="w-full mt-8 bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 text-white py-4 rounded-2xl text-lg font-bold shadow-lg transition-all duration-300 hover:scale-[1.02]
+    active:scale-95"
   
 >
   Proceed to Checkout

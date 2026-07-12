@@ -134,6 +134,8 @@ function Login() {
 export default Login;*/
 
 import { useForm } from "react-hook-form";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import type { LoginRequest } from "../interfaces/LoginRequest";
 import type { RegisterRequest } from "../interfaces/RegisterRequest";
@@ -162,7 +164,7 @@ function Login() {
 
     if (user) {
 
-      alert("Login Successful");
+      toast.success("Login Successful 🎉");
 
       // Store logged-in user
       localStorage.setItem(
@@ -174,7 +176,7 @@ function Login() {
         window.location.href = "/";
     } else {
 
-      alert("Invalid Email or Password");
+      toast.error("Invalid Email or Password");
 
     }
   };
@@ -280,6 +282,7 @@ function Login() {
 
       </form>
     </div>
+    <ToastContainer position="top-right" autoClose={2500} />
     </div>
   );
 }

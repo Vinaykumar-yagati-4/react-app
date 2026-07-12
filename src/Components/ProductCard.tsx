@@ -197,6 +197,7 @@ function ProductCard({ product }: ProductCardProps) {
           transition-all
           duration-300
           hover:scale-[1.03]
+          active:scale-95
           shadow-lg
           "
         >

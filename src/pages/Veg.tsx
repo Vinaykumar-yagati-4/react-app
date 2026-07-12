@@ -17,8 +17,21 @@ function Veg() {
 
   return (
     <div className="bg-gradient-to-b from-green-50 via-white to-green-100 min-h-screen">
-      <ToastContainer position="top-right" autoClose={2500} />
-
+     <ToastContainer
+     position="top-right"
+     autoClose={2500}
+     newestOnTop
+     closeOnClick
+     pauseOnHover
+     theme="light"
+     toastStyle={{
+     background: "#1E293B",
+     color: "#ffffff",
+     borderRadius: "14px",
+     fontWeight: "600",
+     boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
+    }}
+    />
       {/* Header Section */}
       <section className="bg-gradient-to-r from-green-800 via-green-600 to-emerald-500 text-white py-24">
        <div className="max-w-screen-2xl mx-auto px-8 text-center">

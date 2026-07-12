@@ -56,7 +56,21 @@ function NonVeg() {
   return (
     <div className="bg-gray-50 min-h-screen">
 
-      <ToastContainer position="top-right" autoClose={2500} />
+      <ToastContainer
+      position="top-right"
+      autoClose={2500}
+      newestOnTop
+      closeOnClick
+      pauseOnHover
+      theme="light"
+      toastStyle={{
+       background: "#1E293B",
+       color: "#ffffff",
+       borderRadius: "14px",
+       fontWeight: "600",
+       boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
+      }}
+      />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-red-700 via-red-600 to-orange-500 text-white py-16">

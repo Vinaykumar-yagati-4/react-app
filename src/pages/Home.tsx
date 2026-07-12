@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Hero from "../Components/Hero";
 import CategoryCard from "../Components/CategoryCard";
+import Footer from "../Components/Footer";
 import {
   FaTruck,
   FaLeaf,
@@ -79,9 +80,9 @@ function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10">
 
-            <div className="bg-white rounded-2xl shadow-lg p-8 text-center hover:-translate-y-2 transition duration-300">
+            <div className="bg-gradient-to-br from-green-50 to-white border border-green-200 rounded-3xl shadow-xl p-8 text-center hover:-translate-y-3 hover:shadow-2xl transition-all duration-300">
 
-              <FaLeaf className="text-5xl text-green-600 mx-auto mb-5" />
+             <FaLeaf className="text-6xl text-green-600 mx-auto mb-6" />
 
               <h3 className="text-xl font-bold mb-3">
                 Farm Fresh
@@ -93,10 +94,9 @@ function Home() {
 
             </div>
 
-            <div className="bg-white rounded-3xl shadow-xl p-8 text-center border border-green-100 hover:-translate-y-3 hover:shadow-2xl transition-all duration-300">
+            <div className="bg-gradient-to-br from-blue-50 to-white border border-blue-200 rounded-3xl shadow-xl p-8 text-center hover:-translate-y-3 hover:shadow-2xl transition-all duration-300">
 
-              <FaTruck className="text-5xl text-green-600 mx-auto mb-5" />
-
+              <FaTruck className="text-6xl text-blue-600 mx-auto mb-6" />
               <h3 className="text-xl font-bold mb-3">
                 Fast Delivery
               </h3>
@@ -107,10 +107,9 @@ function Home() {
 
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-8 text-center hover:-translate-y-2 transition duration-300">
+            <div className="bg-gradient-to-br from-yellow-50 to-white border border-yellow-200 rounded-3xl shadow-xl p-8 text-center hover:-translate-y-3 hover:shadow-2xl transition-all duration-300">
 
-              <FaTags className="text-6xl text-green-600 mx-auto mb-5" />
-
+              <FaTags className="text-6xl text-yellow-500 mx-auto mb-6" />
               <h3 className="text-xl font-bold mb-3">
                 Best Prices
               </h3>
@@ -121,9 +120,9 @@ function Home() {
 
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-8 text-center hover:-translate-y-2 transition duration-300">
+            <div className="bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-3xl shadow-xl p-8 text-center hover:-translate-y-3 hover:shadow-2xl transition-all duration-300">
 
-              <FaStar className="text-5xl text-green-600 mx-auto mb-5" />
+              <FaStar className="text-6xl text-purple-600 mx-auto mb-6" />
 
               <h3 className="text-xl font-bold mb-3">
                 Trusted Quality
@@ -165,6 +164,7 @@ function Home() {
         </div>
 
       </section>
+      <Footer />
     </>
   );
 }
