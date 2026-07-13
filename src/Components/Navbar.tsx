@@ -38,38 +38,37 @@ function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-lg border-b border-gray-200">
 
-      <div className="max-w-screen-2xl mx-auto px-8">
+      <div className="w-full px-4 xl:px-6">
 
-        <div className="flex items-center justify-between h-20 gap-6">
-
+        <div className="flex items-center h-20">
           {/* LEFT SECTION */}
 
-          <div className="flex items-center gap-8">
-
+          <div className="flex items-center gap-4 flex-shrink-0">
             {/* Logo */}
 
             <NavLink
               to="/"
-              className="flex items-center gap-6"
+             className="flex items-center gap-2"
             >
 
-              <div className="bg-white rounded-2xl shadow-md p-2 w-20 h-20 flex items-center justify-center flex-shrink-0">
+             <div className="bg-white rounded-xl shadow-md p-1 w-12 h-12 flex items-center justify-center flex-shrink-0">
 
                 <img
                   src={logo}
                   alt="FreshMart"
-                  className="w-14 h-14 object-contain"
+                  // className="w-14 h-14 object-contain"
+                  className="w-8 h-8"
                 />
 
               </div>
 
               <div>
 
-                <h1 className="text-2xl font-extrabold text-green-700 tracking-wide">
+                <h1 className="text-lg font-bold">
                   FreshMart
                 </h1>
 
-                <p className="text-sm text-gray-500">
+                <p className="text-xs text-gray-500">
                   Fresh Grocery Store
                 </p>
 
@@ -79,9 +78,9 @@ function Navbar() {
 
             {/* Delivery */}
 
-            <div className="hidden xl:flex items-center gap-3 bg-green-50 px-4 py-2 rounded-2xl border border-green-200 shadow-sm">
+            <div className="hidden xl:flex items-center gap-3 ml-6 bg-green-50 px-3 py-2 rounded-2xl border border-green-200 shadow-sm">
 
-              <div className="bg-green-600 text-white p-3 rounded-xl">
+              <div className="bg-green-600 text-white p-2 rounded-xl">
 
                 <FaMapMarkerAlt />
 
@@ -105,12 +104,11 @@ function Navbar() {
 
           {/* SEARCH */}
 
-          <div className="hidden lg:flex flex-1 min-w-[320px] max-w-xl mx-6">
+          <div className="hidden lg:flex flex-1 max-w-lg mx-6">
 
-            <div className="flex items-center w-full bg-gray-100 rounded-2xl px-5 py-4 border border-gray-200 focus-within:border-green-600 transition">
+            <div className="flex items-center w-full bg-white rounded-full px-5 py-3 border border-gray-200 shadow-md hover:shadow-lg focus-within:border-green-500 focus-within:ring-2 focus-within:ring-green-200 transition-all duration-300">
 
-              <FaSearch className="text-gray-400 text-lg" />
-
+              <FaSearch className="text-green-600 text-xl" />
               <input
                 type="text"
                 value={search}
@@ -129,8 +127,8 @@ function Navbar() {
                     );
                   }
                 }}
-                placeholder="Search vegetables, fruits, milk..."
-                className="bg-transparent outline-none ml-4 w-full text-gray-700"
+                placeholder="Search for vegetables, fruits, dairy & more..."
+                className="bg-transparent outline-none ml-3 w-full text-gray-700 placeholder:text-gray-400 text-[15px]"
               />
 
             </div>
@@ -138,14 +136,13 @@ function Navbar() {
           </div>
                     {/* ================= Desktop Menu ================= */}
 
-          <div className="hidden xl:flex items-center gap-1 flex-shrink-0">
-
+          <div className="hidden xl:flex items-center gap-2 flex-shrink-0">
             {/* Home */}
 
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `px-4 py-2 rounded-xl font-semibold transition-all duration-300 ${
+                `px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 ${
                   isActive
                     ? "bg-green-600 text-white"
                     : "text-gray-700 hover:bg-green-100 hover:text-green-700"
@@ -160,7 +157,7 @@ function Navbar() {
             <NavLink
               to="/veg"
               className={({ isActive }) =>
-                `flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 ${
+                `flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold transition-all duration-300 ${
                   isActive
                     ? "bg-green-600 text-white"
                     : "text-gray-700 hover:bg-green-100 hover:text-green-700"
@@ -176,7 +173,7 @@ function Navbar() {
             <NavLink
               to="/nonveg"
               className={({ isActive }) =>
-                `flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 ${
+                `flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold transition-all duration-300 ${
                   isActive
                     ? "bg-green-600 text-white"
                     : "text-gray-700 hover:bg-green-100 hover:text-green-700"
@@ -192,7 +189,7 @@ function Navbar() {
             <NavLink
               to="/dairy"
               className={({ isActive }) =>
-                `flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 ${
+                `flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold transition-all duration-300 ${
                   isActive
                     ? "bg-green-600 text-white"
                     : "text-gray-700 hover:bg-green-100 hover:text-green-700"
@@ -208,7 +205,7 @@ function Navbar() {
             <NavLink
               to="/orders"
               className={({ isActive }) =>
-                `flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 ${
+                `flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold transition-all duration-300 ${
                   isActive
                     ? "bg-green-600 text-white"
                     : "text-gray-700 hover:bg-green-100 hover:text-green-700"
@@ -249,7 +246,7 @@ function Navbar() {
                 <NavLink
                   to="/login"
                   className={({ isActive }) =>
-                    `flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 ${
+                    `flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold transition-all duration-300 ${
                       isActive
                         ? "bg-green-600 text-white"
                         : "text-gray-700 hover:bg-green-100 hover:text-green-700"
@@ -262,7 +259,7 @@ function Navbar() {
 
                 <NavLink
                   to="/register"
-                  className="min-w-[110px] text-center bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-xl font-semibold transition-all duration-300"
+                  className="bg-red-500 hover:bg-red-600 text-white text-center px-6 py-2.5 rounded-xl font-semibold transition-all duration-300"
                 >
                   Register
                 </NavLink>
@@ -271,7 +268,7 @@ function Navbar() {
               <>
                 {/* Welcome */}
 
-                <div className="hidden 2xl:block text-sm text-gray-600 px-2 whitespace-nowrap">
+                <div className="block text-xs text-gray-600 px-1 whitespace-nowrap">
                   Welcome,
                   <span className="font-bold text-green-700 ml-1">
                     {loggedInUser.name}
@@ -285,7 +282,7 @@ function Navbar() {
                     localStorage.removeItem("loggedInUser");
                     navigate("/login");
                   }}
-                  className="min-w-[110px] bg-red-500 hover:bg-red-600 text-white text-center px-5 py-2 rounded-xl font-semibold transition-all duration-300"
+                  className="min-w-[110px] bg-red-500 hover:bg-red-600 text-white text-center px-3 py-2 rounded-xl font-semibold transition-all duration-300"
                 >
                   Logout
                 </button>
@@ -368,7 +365,7 @@ function Navbar() {
           <NavLink
             to="/"
             onClick={() => setMenuOpen(false)}
-            className="block px-4 py-3 rounded-xl hover:bg-green-100"
+            className="block px-3 py-2 rounded-xl hover:bg-green-100"
           >
             🏠 Home
           </NavLink>
@@ -455,7 +452,7 @@ function Navbar() {
           <NavLink
             to="/cart"
             onClick={() => setMenuOpen(false)}
-            className="flex justify-between items-center bg-yellow-400 px-4 py-3 rounded-xl"
+            className="flex justify-between items-center bg-yellow-400 px-3 py-2 rounded-xl"
           >
             <span className="flex items-center gap-2">
               <FaShoppingCart />
