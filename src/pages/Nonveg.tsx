@@ -18,7 +18,7 @@ function NonVeg() {
       id: 1,
       name: "Chicken",
       imageurl: "/images/chicken.jpeg",
-      price: 200,
+      price: 350,
       description: "Fresh chicken",
     },
     {
