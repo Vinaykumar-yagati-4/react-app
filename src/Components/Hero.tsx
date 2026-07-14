@@ -10,18 +10,16 @@ function Hero() {
     <section className="relative overflow-hidden bg-gradient-to-r from-green-800 via-green-600 to-emerald-500 text-white">
 
       {/* Background decoration */}
-      <div className="absolute top-10 left-10 w-40 h-40 bg-white/10 rounded-full"></div>
+      <div className="absolute top-10 left-10 w-44 h-44 bg-yellow-300/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-10 right-10 w-72 h-72 bg-green-200/10 rounded-full blur-3xl animate-pulse"></div>
 
-      <div className="absolute bottom-10 right-10 w-60 h-60 bg-white/10 rounded-full"></div>
-
-
-      <div className="max-w-screen-2xl mx-auto px-8 py-20 md:py-28">
+      <div className="max-w-screen-2xl mx-auto px-6 lg:px-10 py-20 md:py-28">
 
         <div className="grid lg:grid-cols-2 gap-20 items-center">
 
           {/* Left Content */}
           <div>
-            <div className="inline-flex items-center bg-yellow-400 text-green-900 px-4 py-2 rounded-full font-semibold mb-6 shadow-lg">
+            <div className="inline-flex items-center bg-yellow-400 text-green-900 px-5 py-2 rounded-full font-bold mb-6 shadow-2xl animate-pulse">
             🚚 Free Delivery on Orders Above ₹499
             </div>
 
@@ -30,7 +28,7 @@ function Hero() {
             </p>
 
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-8">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight tracking-tight mb-8">
 
               Fresh Groceries
               <br />
@@ -60,7 +58,7 @@ function Hero() {
 
               <Link
                 to="/veg"
-                className="bg-yellow-400 text-green-900 px-10 py-4 rounded-2xl font-bold text-lg shadow-xl hover:scale-110 transition-all duration-300"
+                className="bg-yellow-400 text-green-900 px-10 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:bg-yellow-300 hover:scale-105 hover:-translate-y-1 transition-all duration-300"
               >
                 Shop Now
               </Link>
@@ -68,7 +66,7 @@ function Hero() {
 
               <Link
                 to="/register"
-                className="border-2 border-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-white hover:text-green-700 transition-all duration-300"
+                className="border-2 border-white px-10 py-4 rounded-2xl font-bold text-lg bg-white/10 backdrop-blur-sm hover:bg-white hover:text-green-700 hover:-translate-y-1 transition-all duration-300"
               >
                 Join FreshMart
               </Link>
@@ -85,7 +83,7 @@ function Hero() {
           <div className="hidden md:flex justify-center">
 
 
-            <div className="bg-white/15 backdrop-blur-xl rounded-[35px] p-12 shadow-2xl border border-white/20">
+            <div className="bg-white/20 backdrop-blur-2xl rounded-[35px] p-12 shadow-[0_20px_60px_rgba(0,0,0,0.25)] border border-white/30 hover:scale-105 transition-all duration-500">
 
 
               <div className="text-center text-9xl mb-10 animate-bounce">
