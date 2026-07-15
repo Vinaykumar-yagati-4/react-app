@@ -39,8 +39,8 @@ function CategoryCard({
           border
           border-white/20
           hover:-translate-y-4
-         hover:scale-[1.03]
-hover:shadow-[0_25px_60px_rgba(0,0,0,0.35)]
+          hover:scale-[1.03]
+          hover:shadow-[0_25px_60px_rgba(0,0,0,0.35)]
           transition-all
           duration-500
         `}
