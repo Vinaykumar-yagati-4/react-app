@@ -50,15 +50,10 @@ function Hero() {
               Fresh groceries delivered every day with care.
 
             </p>
-
-
-
             <div className="flex flex-wrap gap-5">
-
-
               <Link
                 to="/veg"
-                className="bg-yellow-400 text-green-900 px-10 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:bg-yellow-300 hover:scale-105 hover:-translate-y-1 transition-all duration-300"
+                className="flex items-center gap-4 bg-white/25 rounded-3xl p-4 hover:scale-105 hover:shadow-xl transition-all duration-300"
               >
                 Shop Now
               </Link>
@@ -83,8 +78,8 @@ function Hero() {
           <div className="hidden md:flex justify-center">
 
 
+            
             <div className="bg-white/20 backdrop-blur-2xl rounded-[35px] p-12 shadow-[0_20px_60px_rgba(0,0,0,0.25)] border border-white/30 hover:scale-105 transition-all duration-500">
-
 
               <div className="text-center text-9xl mb-10 animate-bounce drop-shadow-2xl">
                 🛒
@@ -94,7 +89,7 @@ function Hero() {
               <div className="space-y-5">
 
 
-                <div className="flex items-center gap-5 bg-white/25 rounded-2xl p-5 hover:bg-white/30 transition-all duration-300">
+                <div className="flex items-center gap-5 bg-white/25 rounded-3xl p-5 hover:bg-white/30 transition-all duration-300">
 
                   <FaLeaf className="text-4xl text-yellow-300" />
 
@@ -114,7 +109,7 @@ function Hero() {
 
 
 
-                <div className="flex items-center gap-4 bg-white/25 rounded-2xl p-4">
+                <div className="flex items-center gap-4 bg-white/25 rounded-3xl p-4">
 
                   <FaTruck className="text-3xl text-yellow-300" />
 
@@ -134,7 +129,7 @@ function Hero() {
 
 
 
-                <div className="flex items-center gap-4 bg-white/25 rounded-2xl p-4">
+                <div className="flex items-center gap-4 bg-white/25 rounded-3xl p-4">
 
                   <FaShieldAlt className="text-3xl text-yellow-300" />
 

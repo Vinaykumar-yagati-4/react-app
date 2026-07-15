@@ -36,7 +36,11 @@ function CategoryCard({
           p-10
           text-white
           shadow-2xl
-          hover:-translate-y-5 hover:scale-105
+          border
+          border-white/20
+          hover:-translate-y-4
+         hover:scale-[1.03]
+hover:shadow-[0_25px_60px_rgba(0,0,0,0.35)]
           transition-all
           duration-500
         `}
@@ -55,36 +59,38 @@ function CategoryCard({
         <div className="relative">
 
           <div
-            className="
-              bg-white/20
-              backdrop-blur-sm
-              w-28
-              h-28
-              mx-auto
-              rounded-full
-              flex
-              items-center
-              justify-center
-              text-7xl
-              mb-6
-              group-hover:rotate-12 group-hover:scale-110
-              transition
-              duration-300
-            "
-          >
-            {icon}
+           className="
+           bg-white/20
+           backdrop-blur-sm
+           w-28
+           h-28
+           mx-auto
+          rounded-full
+          flex
+          items-center
+          justify-center
+          text-7xl
+          mb-5
+          group-hover:rotate-12
+          group-hover:scale-110
+          transition-all
+          duration-300
+          "
+        >
+       {icon}
+      </div>
 
-            <div className="inline-block bg-yellow-300 text-green-900 px-3 py-1 rounded-full text-sm font-bold mb-4 shadow-md">
-              Fresh Everyday
-            </div>
-
-          </div>
+     <div className="flex justify-center mb-6">
+      <span className="bg-yellow-300 text-green-900 px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+          Fresh Everyday
+      </span>
+     </div>
 
 
 
           {/* Title */}
 
-          <h2 className="text-4xl font-black mb-4">
+          <h2 className="text-4xl font-extrabold tracking-tight mb-4 text-center">
 
             {title}
 
@@ -94,7 +100,7 @@ function CategoryCard({
 
           {/* Description */}
 
-          <p className="text-white/95 text-lg leading-7 mb-8">
+          <p className="text-white/90 text-lg leading-7 mb-8 text-center">
 
             {description}
 
@@ -106,17 +112,22 @@ function CategoryCard({
 
           <div
             className="
-              inline-flex
-              items-center
-              gap-3
-              bg-white
-              text-gray-800
-              px-7
-              py-3
-              rounded-full
-              font-bold text-lg
-              group-hover:bg-yellow-300 group-hover:text-green-900
-              transition
+            inline-flex
+            items-center
+            gap-3
+            bg-white
+            text-gray-800
+            px-8
+            py-3
+            rounded-full
+            font-bold
+            text-lg
+            shadow-xl
+            group-hover:bg-yellow-300
+            group-hover:text-green-900
+            group-hover:translate-x-2
+            transition-all
+            duration-300
             "
           >
 
